@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { QueueService } from 'src/app/service/queue.service';
 import { Subscription } from 'rxjs';
 
@@ -15,7 +14,7 @@ export class RequestQueueNumberComponent implements OnInit {
   queueNewSubs?: Subscription;
   newEntry: any;
 
-  constructor(private router: Router, private queueService: QueueService) {}
+  constructor(private queueService: QueueService) {}
 
   ngOnInit(): void {
     this.getData();

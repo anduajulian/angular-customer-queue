@@ -1,4 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { VisitorService } from 'src/app/service/visitor.service';
+import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-input-visitor-details',
@@ -7,8 +10,9 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class InputVisitorDetailsComponent implements OnInit {
   @Input() visitor:any;
+  visitorSubs?: Subscription;
 
-  constructor() {
+  constructor(private visitorService : VisitorService, private router: Router) {
     this.visitor = {
     name:"",
     email:"",
@@ -22,8 +26,22 @@ export class InputVisitorDetailsComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  insertData(): void {
+    this.visitorSubs = this.visitorService
+      .insert(this.visitor)
+      .subscribe((result) => {
+        if(result){
+          this.router.navigateByUrl('/')
+        }
+      });
+  }
+
   clickBtn(){
-    return console.log("WAKWAW");
+    this.insertData()
+  }
+
+  ngOnDestroy(): void {
+    this.visitorSubs?.unsubscribe();
   }
 
 }
