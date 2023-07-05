@@ -1,0 +1,15 @@
+<div class="ticket">
+  <h1 class="centered" style="font-weight: bold">PRIEDS HOSPITAL</h1>
+  <hr />
+  <p class="centered">Nomor Antrian Anda</p>
+  <h1 class="centered" style="font-weight: bold; font-size: 80px">
+    {{ queueNumber }}
+  </h1>
+  <hr />
+  <p class="centered">Budayakan Antri <br />Terimakasih atas Kunjungan Anda</p>
+  <div style="display: flex; justify-content: flex-end">
+    <button id="btnPrint" class="hidden-print" (click)="doPrint()">
+      Print
+    </button>
+  </div>
+</div>
