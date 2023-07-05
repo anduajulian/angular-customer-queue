@@ -1,1 +1,43 @@
-<p>visitor-list works!</p>
+<div class="container">
+  <h1 class="text-center my-5">Visitors List Data</h1>
+  <div class="row mb-3">
+    <div class="col">
+      <div class="d-flex justify-content-end">
+        <button routerLink="" class="btn btn-secondary mx-2">Back</button>
+        <a class="btn btn-primary" routerLink="/input-visitor-details"
+          >Create</a
+        >
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <thead class="table-secondary">
+            <tr>
+              <th scope="col">No.</th>
+              <th scope="col">Username</th>
+              <th scope="col">First Name</th>
+              <th scope="col">Last Name</th>
+              <th scope="col">Email</th>
+              <th scope="col">Birth Date</th>
+              <th scope="col">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let data of allData; let i = index">
+              <td scope="row">{{ i + 1 }}</td>
+              <td>{{ data.name }}</td>
+              <td>{{ data.email }}</td>
+              <td>{{ data.gender }}</td>
+              <td>{{ data.address }}</td>
+              <td>{{ data.nohp }}</td>
+              <td>{{ data.queue }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
